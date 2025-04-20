@@ -1,0 +1,103 @@
+# Project Log
+
+- **2025‑04‑20 00:03**: Project initialization - Created task.json with TSK-001 and TSK-002
+- **2025‑04‑20 00:03**: Generated project_20250420.json with initial file index
+- **2025‑04‑20 00:04**: Created project_log.md for action tracking
+- **2025‑04‑20 00:08**: Created backend/main.py with FastAPI setup
+- **2025‑04‑20 00:09**: Created backend/api/plan.py for /plan command
+- **2025‑04‑20 00:09**: Created frontend structure with Next.js
+- **2025‑04‑20 00:17**: Implemented frontend components: chat-interface.js and kanban-board.js
+- **2025‑04‑20 00:18**: Created backend/api/risk.py for /risk check-in functionality
+- **2025‑04‑20 00:19**: Implemented risk-modal.js component for team lead check-ins
+- **2025‑04‑20 00:19**: Integrated risk modal with chat interface – TSK-002 completed
+- **2025‑04‑20 00:23**: Updated task.json – marked TSK-002 as Done and added TSK-004
+- **2025‑04‑20 00:23**: Created .windsurfrules.yaml as the working configuration file
+- **2025‑04‑20 00:24**: Updated project_20250420.json to reflect current project structure
+- **2025‑04‑20 00:25**: Note: Original .windsurfrules contains project specs, using .windsurfrules.yaml for actual config
+- **2025‑04‑20 00:26**: Created backend/api/alerts.py for /alerts command functionality
+- **2025‑04‑20 00:26**: Updated backend/main.py to include alerts router
+- **2025‑04‑20 00:27**: Created frontend/src/components/alerts-panel.js component
+- **2025‑04‑20 00:27**: Updated frontend/src/pages/index.js to support /alerts command
+- **2025‑04‑20 00:28**: Updated task.json – marked TSK-003 as InProgress
+- **2025‑04‑20 00:29**: Created backend/api/log.py for project log functionality
+- **2025‑04‑20 00:29**: Updated backend/main.py to include log router
+- **2025‑04‑20 00:29**: Created frontend/src/components/log-viewer.js component
+- **2025‑04‑20 00:30**: Updated frontend/src/pages/index.js to support /log command
+- **2025‑04‑20 00:30**: Updated task.json – marked TSK-004 as InProgress
+- **2025‑04‑20 00:31**: Added TSK-005 for Stakeholder Progress Report feature
+- **2025‑04‑20 00:32**: Created backend/api/digest.py for report generation
+- **2025‑04‑20 00:32**: Updated backend/main.py to include digest router
+- **2025‑04‑20 00:32**: Created frontend/src/components/digest-generator.js component
+- **2025‑04‑20 00:33**: Updated frontend/src/pages/index.js to support /digest command
+- **2025‑04‑20 00:33**: Updated task.json – marked TSK-005 as InProgress
+- **2025‑04‑20 00:34**: Added TSK-006 for On-Demand Triage Meeting Scheduler feature
+- **2025‑04‑20 00:35**: Created backend/api/schedule.py for meeting scheduling
+- **2025‑04‑20 00:35**: Updated backend/main.py to include schedule router
+- **2025‑04‑20 00:36**: Created frontend/src/components/meeting-scheduler.js component
+- **2025‑04‑20 00:36**: Updated frontend/src/pages/index.js to support /schedule command
+- **2025‑04‑20 00:37**: Updated task.json – marked TSK-006 as InProgress
+- **2025‑04‑20 01:11**: Enhanced requirements.txt with comprehensive dependencies
+- **2025‑04‑20 01:12**: Updated .gitignore with patterns for Python and Node.js
+- **2025‑04‑20 01:12**: Created data directory structure for storing plans and reports
+- **2025‑04‑20 01:13**: Added project README.md with setup instructions
+- **2025‑04‑20 01:14**: Added TSK-007 for future AI Face & Voice Interface feature
+- **2025‑04‑20 01:22**: Updated .env.template to use Google Gemini API instead of OpenAI
+- **2025‑04‑20 01:23**: Updated requirements.txt to include Google Generative AI libraries
+- **2025‑04‑20 01:24**: Created backend/utils/gemini_utils.py for Gemini API integration
+- **2025‑04‑20 01:25**: Integrated Gemini-powered plan parsing in backend/api/plan.py
+- **2025‑04‑20 01:58**: Created venv-requirements.txt with compatible dependency versions
+- **2025‑04‑20 02:02**: Created backend/utils/gemini-utils.py for direct Gemini API integration
+- **2025‑04‑20 02:03**: Updated backend/main.py with improved module import mechanism
+- **2025‑04‑20 03:45**: Fixed Python module loading to support kebab-case files with camelCase imports
+- **2025‑04‑20 03:46**: Enhanced backend/utils/__init__.py to dynamically load kebab-case modules
+- **2025‑04‑20 03:47**: Created backend/api/api-server.py lightweight Flask implementation
+- **2025‑04‑20 03:48**: Resolved compatibility issues between Gemini AI and backend framework
+- **2025-04-20 03:58**: Security: Removed sensitive credentials from Git history
+- **2025-04-20 04:29**: Backend module loaded: plan
+- **2025-04-20 04:29**: Backend module loaded: risk
+- **2025-04-20 04:29**: Backend module loaded: plan
+- **2025-04-20 04:29**: Backend module loaded: risk
+- **2025-04-20 04:29**: Backend module loaded: alerts
+- **2025-04-20 04:29**: Backend module loaded: log
+- **2025-04-20 04:29**: Backend module loaded: digest
+- **2025-04-20 04:29**: Backend module loaded: schedule
+- **2025-04-20 04:30**: Added TSK-009 for replacing Next.js frontend with Streamlit
+- **2025-04-20 04:31**: Created streamlit-frontend directory with app.py
+- **2025-04-20 04:31**: Added streamlit-frontend/api-service.py for backend connectivity
+- **2025-04-20 04:31**: Added streamlit-frontend/task-service.py for task.json management
+- **2025-04-20 04:31**: Added streamlit-frontend/log-service.py for project log functionality
+- **2025-04-20 04:34**: Backend module loaded: plan
+- **2025-04-20 04:34**: Backend module loaded: risk
+- **2025-04-20 04:34**: Backend module loaded: alerts
+- **2025-04-20 04:34**: Backend module loaded: log
+- **2025-04-20 04:34**: Backend module loaded: digest
+- **2025-04-20 04:34**: Backend module loaded: schedule
+- **2025-04-20 04:34**: Backend module loaded: plan
+- **2025-04-20 04:34**: Backend module loaded: risk
+- **2025-04-20 04:34**: Backend module loaded: alerts
+- **2025-04-20 04:34**: Backend module loaded: log
+- **2025-04-20 04:34**: Backend module loaded: digest
+- **2025-04-20 04:34**: Backend module loaded: schedule
+- **2025-04-20 04:44**: Backend module loaded: plan
+- **2025-04-20 04:44**: Backend module loaded: risk
+- **2025-04-20 04:44**: Backend module loaded: alerts
+- **2025-04-20 04:44**: Backend module loaded: log
+- **2025-04-20 04:44**: Backend module loaded: digest
+- **2025-04-20 04:44**: Backend module loaded: schedule
+
+- **2025-04-20 04:45**: Project log viewed
+- **2025-04-20 04:47**: Project log viewed- **2025-04-20 04:49**: Backend module loaded: plan
+- **2025-04-20 04:49**: Backend module loaded: risk
+- **2025-04-20 04:49**: Backend module loaded: alerts
+- **2025-04-20 04:49**: Backend module loaded: log
+- **2025-04-20 04:49**: Backend module loaded: digest
+- **2025-04-20 04:49**: Backend module loaded: schedule
+
+- **2025-04-20 04:53**: Risk check-in modal sent to Default Lead for 8 stories
+- **2025-04-20 04:56**: Project log viewed
+- **2025-04-20 04:56**: Project log viewed
+- **2025-04-20 05:04**: Risk check-in modal sent to Default Lead for 8 stories
+- **2025-04-20 05:04**: Alerts sent via Email for 7 tasks- **2025-04-20 05:04**: /alerts � Daily alert sent for 7 tasks via Email
+
+- **2025-04-20 05:06**: Project log viewed
+- **2025-04-20 05:11**: Project log viewed

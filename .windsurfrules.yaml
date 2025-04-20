@@ -1,0 +1,34 @@
+# .windsurfrules
+
+# 1. Main project‑files index
+project_index: "project_20250420.json"
+
+# 2. When new code file is created:
+#    - add its path under project_index → files[]
+#    - ask windsurf to refer to this key for imports
+on_new_file:
+  - update_index: true
+  - dependency_key: "{{ filename_without_ext }}"
+  - import_template: "import {{ dependency_key }} from './{{ dependency_key }}';"
+
+# 3. Dependency naming
+#    - all modules MUST use kebab‑case matching file name
+#    - windsurf enforces this to avoid module errors
+naming_convention:
+  file_case: "kebab-case"
+  module_case: "camelCase"
+
+# 4. Additional setup
+#    - if Notion API keys are missing, windsurf prompts: "Please add NOTION_API_KEY to .env"
+#    - instruct to create a safe .gitignore (see below)
+external_setup:
+  - env_required:
+      - "NOTION_API_KEY"
+      - "SENDGRID_API_KEY"
+      - "GOOGLE_CALENDAR_CREDENTIALS"
+  - gitignore_template: |
+      # .gitignore
+      node_modules/
+      venv/
+      .env
+      project_*.json

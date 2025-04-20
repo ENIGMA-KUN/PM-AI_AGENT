@@ -1,0 +1,92 @@
+[
+  {
+    "Task ID": "TSK‑009",
+    "Title": "Replace Next.js with Streamlit Frontend",
+    "Status": "InProgress",
+    "Dependencies": "TSK‑007",
+    "Priority": "High",
+    "Description": "Migrate frontend from Next.js to Streamlit for compatibility",
+    "Details": "Create streamlit-frontend directory, implement command handlers, ensure proper backend connections",
+    "Test Strategy": "Verify all commands work through Streamlit and connect to backend APIs"
+  },
+  {
+    "Task ID": "TSK‑001",
+    "Title": "Implement /plan command",
+    "Status": "InProgress",
+    "Dependencies": "",
+    "Priority": "High",
+    "Description": "Accept user input and generate plan.json + Kanban",
+    "Details": "Use LangChain ReAct with GPT-4; store plan.json; render board in React",
+    "Test Strategy": "Unit‑test parse_plan() and e2e /plan UI flow"
+  },
+  {
+    "Task ID": "TSK‑002",
+    "Title": "Risk Check‑In Modal",
+    "Status": "Done",
+    "Dependencies": "TSK‑001",
+    "Priority": "Medium",
+    "Description": "Send risk modal to leads and flag blockers",
+    "Details": "Bolt JS modal, record answers, turn cards red, notify PM",
+    "Test Strategy": "Simulate modal submit with No and assert alert"
+  },
+  {
+    "Task ID": "TSK‑003",
+    "Title": "Daily Overdue Alerts",
+    "Status": "InProgress",
+    "Dependencies": "TSK‑001",
+    "Priority": "Medium",
+    "Description": "Implement /alerts command for overdue tasks",
+    "Details": "Create scheduler, scan due-dates, send notifications to owners",
+    "Test Strategy": "Mock overdue tasks and verify alert messages"
+  },
+  {
+    "Task ID": "TSK‑004",
+    "Title": "Living Project Log",
+    "Status": "InProgress",
+    "Dependencies": "TSK‑003",
+    "Priority": "Medium",
+    "Description": "Implement /log command to view project activity",
+    "Details": "Create persistent log storage, timestamped entries, filterable view",
+    "Test Strategy": "Verify log entries after each system action"
+  },
+  {
+    "Task ID": "TSK‑005",
+    "Title": "Stakeholder Progress Report",
+    "Status": "InProgress",
+    "Dependencies": "TSK‑004",
+    "Priority": "Medium",
+    "Description": "Implement /digest command for status reports",
+    "Details": "Aggregate board data & logs, create PDF summary with charts",
+    "Test Strategy": "Generate test report and verify PDF formatting"
+  },
+  {
+    "Task ID": "TSK‑006",
+    "Title": "On-Demand Triage Meeting Scheduler",
+    "Status": "InProgress",
+    "Dependencies": "TSK‑005",
+    "Priority": "Medium",
+    "Description": "Implement /schedule command for triage meetings",
+    "Details": "Gather blocked stories, check calendar for free slots, create meeting invites",
+    "Test Strategy": "Test scheduling logic and Google Calendar API integration"
+  },
+  {
+    "Task ID": "TSK‑007",
+    "Title": "Google Gemini Integration",
+    "Status": "InProgress",
+    "Dependencies": "TSK‑006",
+    "Priority": "High",
+    "Description": "Replace OpenAI with Google Gemini for LLM functionality",
+    "Details": "Integrate Google Generative AI API, update LangChain integration, implement in plan parsing",
+    "Test Strategy": "Test plan parsing with Gemini API using various input formats"
+  },
+  {
+    "Task ID": "TSK‑008",
+    "Title": "AI Face & Voice Interface",
+    "Status": "Todo",
+    "Dependencies": "TSK‑007",
+    "Priority": "Low",
+    "Description": "Add AI avatar and voice interface to the chat UI",
+    "Details": "Implement Pixela AI SDK canvas, hook into chat events, add speech recognition and TTS",
+    "Test Strategy": "Verify avatar speaks TTS replies and responds to voice commands"
+  }
+]

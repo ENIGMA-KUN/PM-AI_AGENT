@@ -1,0 +1,37 @@
+# .gitignore
+
+# Node.js dependencies and build artifacts
+node_modules/
+dist/
+build/
+.next/
+.cache/
+coverage/
+
+# Python virtual environments and cache
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+.env.example
+
+# Project specific files
+project_*.json
+data/reports/
+
+# Editor and OS specific files
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+compat-env/
+comp-env/
+google-calendar.json

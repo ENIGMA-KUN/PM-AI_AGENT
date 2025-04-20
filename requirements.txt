@@ -1,0 +1,35 @@
+# Backend core dependencies
+fastapi==0.95.2
+uvicorn==0.22.0
+pydantic==1.10.8
+python-dotenv==1.0.0
+
+# Database and models
+sqlmodel==0.0.8
+
+# AI and language processing
+langchain==0.0.267
+google-generativeai==0.3.1
+llama-cpp-python==0.2.11
+# LangChain integration with Google AI
+langchain-google-genai>=0.0.1
+
+# Scheduling and automation
+apscheduler==3.10.4
+
+# Communication APIs
+sendgrid==6.10.0
+google-api-python-client==2.97.0
+google-auth-httplib2==0.1.0
+google-auth-oauthlib==1.0.0
+
+# Document generation
+pandoc==2.3
+fpdf==1.7.2
+matplotlib==3.7.2
+pandas==2.0.3
+
+# Testing libraries
+pytest==7.4.0
+pytest-cov==4.1.0
+httpx==0.24.1

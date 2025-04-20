@@ -1,0 +1,185 @@
+# PM Agent – Windsurf Vibe‑Coding Project Spec
+
+Below is your **windsurf‑driven project scaffold**. You’ll maintain **two config files** plus **project logs**, and windsurf will generate & update all code files accordingly. Follow these rules and you’ll never hit module‑name or hallucination issues!
+
+---
+
+## 1 ▸ Config File #1: `task.json`
+
+Every feature or bug lives as one JSON object in `task.json`. Windsurf will append new tasks here and update statuses.  
+
+```jsonc
+[
+  {
+    "Task ID": "TSK‑001",
+    "Title": "Implement /plan command",
+    "Status": "Todo",                     // Todo / InProgress / Done
+    "Dependencies": "",                   // e.g. "TSK‑000"
+    "Priority": "High",                   // High / Medium / Low
+    "Description": "Accept user input and generate plan.json + Kanban",
+    "Details": "Use LangChain ReAct with GPT-4; store plan.json; render board in React",
+    "Test Strategy": "Unit‑test parse_plan() and e2e “/plan” UI flow"
+  },
+  {
+    "Task ID": "TSK‑002",
+    "Title": "Risk Check‑In Modal",
+    "Status": "Todo",
+    "Dependencies": "TSK‑001",
+    "Priority": "Medium",
+    "Description": "Send risk modal to leads and flag blockers",
+    "Details": "Bolt JS modal, record answers, turn cards red, notify PM",
+    "Test Strategy": "Simulate modal submit with “No” and assert alert"
+  }
+  // … add new tasks as you go
+]
+```
+
+> **Rules for task.json**  
+> • Always use the `Task ID` format `TSK‑###`.  
+> • Keep fields in this exact order.  
+> • When windsurf generates a new feature file, it appends a matching `TSK‑` entry here.  
+
+---
+
+## 2 ▸ Config File #2: `.windsurfrules`
+
+This file tells windsurf how to manage your project structure and dependencies.
+
+```yaml
+# .windsurfrules
+
+# 1. Main project‑files index
+project_index: "project_{{ date('YYYYMMDD') }}.json"
+
+# 2. When new code file is created:
+#    - add its path under project_index → files[]
+#    - ask windsurf to refer to this key for imports
+on_new_file:
+  - update_index: true
+  - dependency_key: "{{ filename_without_ext }}"
+  - import_template: "import {{ dependency_key }} from './{{ dependency_key }}';"
+
+# 3. Dependency naming
+#    - all modules MUST use kebab‑case matching file name
+#    - windsurf enforces this to avoid module errors
+naming_convention:
+  file_case: "kebab-case"
+  module_case: "camelCase"
+
+# 4. Additional setup
+#    - if Notion API keys are missing, windsurf prompts: “Please add NOTION_API_KEY to .env”
+#    - instruct to create a safe .gitignore (see below)
+external_setup:
+  - env_required:
+      - "NOTION_API_KEY"
+      - "SENDGRID_API_KEY"
+  - gitignore_template: |
+      # .gitignore
+      node_modules/
+      venv/
+      .env
+      project_*.json
+```
+
+> **What windsurf does with `.windsurfrules`**  
+> • Keeps `project_YYYYMMDD.json` up‑to‑date with every file you add.  
+> • Inserts correct `import` lines using the defined `dependency_key`.  
+> • Prompts you if any `env_required` variable is missing.  
+> • Writes a starter `.gitignore` based on `gitignore_template`.  
+
+---
+
+## 3 ▸ Project Logs (no hallucinations)
+
+Windsurf will append **only real actions** to `project_log.md`:
+
+```md
+# Project Log
+
+- **2025‑04‑19 09:00**: task.json updated – TSK‑001 added by windsurf  
+- **2025‑04‑19 09:15**: Created `api/plan.py` and imported in `app.py`  
+- **2025‑04‑19 09:20**: .windsurfrules updated with new file `api/plan.py`  
+- **2025‑04‑19 10:00**: /plan command integrated into FastAPI router  
+- **2025‑04‑19 10:30**: Notion API env var detected: `NOTION_API_KEY` missing – prompted user  
+```
+
+> **Rule:** windsurf writes a new line **only** when it actually modifies code or config.
+
+---
+
+## 4 ▸ Setup & External Dependencies
+
+When you first clone the repo, windsurf will instruct you to:
+
+1. **Create a `.env`** with:
+   ```dotenv
+   NOTION_API_KEY=<your_notion_secret>
+   SENDGRID_API_KEY=<your_sendgrid_key>
+   GOOGLE_CALENDAR_CREDENTIALS=<path_to_creds.json>
+   ```
+2. **Install dependencies**:
+   ```bash
+   npm install        # front‑end
+   pip install -r requirements.txt   # backend
+   ```
+3. **Initialize windsurf** (vibe‑coding CLI):
+   ```bash
+   windsurf init     # reads .windsurfrules, creates project_YYYYMMDD.json, .gitignore
+   ```
+4. **Run the app**:
+   ```bash
+   npm run dev       # Next.js front‑end
+   uvicorn backend.main:app --reload   # FastAPI
+   ```
+
+---
+
+## 5 ▸ End‑to‑End User Flow (Full Story Mode)
+
+1. **Plan**  
+   - User types `/plan …` → windsurf updates `task.json`, `.windsurfrules`, `project_index.json`, generates `api/plan.py`, updates imports, appends to `project_log.md`, and deploys the new `/plan` endpoint.  
+2. **Risk Check‑In**  
+   - User types `/risk` → windsurf ensures `api/risk.py` exists, updates configs, app logs an entry, and launches modals to Leads.  
+3. **Schedule**  
+   - User types `/schedule` → windsurf scaffolds `api/schedule.py`, wires the calendar API, logs the event, and updates the board.  
+4. **Alerts & Log**  
+   - Cron runs → windsurf uses `api/alerts.py`; logs executions in `project_log.md`.  
+5. **Digest**  
+   - `/digest` triggers `api/digest.py`; windsurf ensures dependencies are imported, generates PDF via Pandoc, updates `project_log.md`.  
+
+At each step, **windsurf** will:
+
+- Prompt if a required API key is missing.  
+- Update `.windsurfrules`’s `project_index`.  
+- Add new files to imports with correct names.  
+- Append accurate lines to `project_log.md`.
+
+---
+
+## 6 ▸ Future Phase: AI Face & Voice
+
+Once the text‑first MVP is solid, instruct windsurf:
+
+1. **`task.json`** entry:  
+   ```json
+   {
+     "Task ID": "TSK‑XXX",
+     "Title": "Embed AI Avatar",
+     "Status": "Todo",
+     "Dependencies": "TSK‑YYY",
+     "Priority": "Medium",
+     "Description": "Add Pixela AI SDK avatar canvas to Chat UI",
+     "Details": "Use <script> to load SDK, hook into chat events",
+     "Test Strategy": "Verify avatar speaks TTS replies"
+   }
+   ```
+2. **.windsurfrules** – add rule:  
+   ```yaml
+   on_new_file:
+     - update_index: true
+     - avatar_support: true
+   ```
+3. **Windsurf** will scaffold `components/Avatar.js`, update imports, log the change, and prompt you to install `pixela-ai-sdk` and set `PIXELA_API_KEY`. - not needed now for future use
+
+---
+
