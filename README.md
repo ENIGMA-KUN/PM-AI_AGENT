@@ -1,16 +1,16 @@
 # PM Agent Plus
 
-![alt text](<../PM-Agent-Plus/images/Screenshot 2025-04-20 091156.png>)
+![PM Agent Plus Banner](./images/Screenshot%202025-04-20%20091156.png)
 
 A comprehensive AI-powered project management platform that leverages multi-agent systems to transform project workflows. PM Agent Plus combines advanced LLM capabilities with specialized agent teams to automate planning, risk assessment, dependency management, and research tasks.
 
-![alt text](<../PM-Agent-Plus/images/Screenshot 2025-04-20 091148.png>)
+![Project Workflow](./images/Screenshot%202025-04-20%20091148.png)
 
 ## Key Features
 
 ### Project Manager Assistant Agent
 
-![alt text](<../PM-Agent-Plus/images/Screenshot 2025-04-20 090947.png>)
+![Project Manager Agent](./images/Screenshot%202025-04-20%20090947.png)
 
 An advanced AI-driven project planning and management system that leverages LLM capabilities to:
 
@@ -22,7 +22,7 @@ An advanced AI-driven project planning and management system that leverages LLM 
 
 ### Research Team AutoGen
 
-![alt text](<../PM-Agent-Plus/images/Screenshot 2025-04-20 090958.png>)
+![Research Team AutoGen](./images/Screenshot%202025-04-20%20090958.png)
 
 A multi-agent collaborative research system powered by AutoGen technology:
 
